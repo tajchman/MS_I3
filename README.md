@@ -2,7 +2,7 @@
 
 ## Organisation
 
-| Horaire :    | Cours et TD/TP le vendredi matin  [Planning détaillé]
+| Horaire :    | Cours et TD/TP le vendredi matin  [Planning détaillé](Seances_MS_I3_2024_2025.pdf)
 | :----------- | :----------
 | Enseignant : | Marc Tajchman
 |              | CEA, DEN/DM2S/STMF/LMES
