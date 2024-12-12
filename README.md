@@ -1,5 +1,4 @@
-# MS_I3
-### Cours MS-I3 : Programmation hybride et multi-coeurs  [2024/2025]
+# Cours MS-I3 : Programmation hybride et multi-coeurs  [2024/2025]
 
 ## Organisation
 
