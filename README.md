@@ -2,10 +2,10 @@
 
 ## Organisation
 
-Horaire :    | Cours et TD/TP le vendredi matin  [Planning détaillé]
-:----------- | :----------
-Enseignant : | Marc Tajchman
-             | CEA, DEN/DM2S/STMF/LMES
+| Horaire :    | Cours et TD/TP le vendredi matin  [Planning détaillé]
+| :----------- | :----------
+| Enseignant : | Marc Tajchman
+|              | CEA, DEN/DM2S/STMF/LMES
 
 Prérequis
 Il est conseillé aux étudiants qui souhaitent suivre ce cours, d'avoir déjà utilisé des machines de calcul sous linux, les outils standards (shell, éditeurs, etc) et les outils de progammation (tels que compilateurs, cmake, make, débogeurs, etc) disponibles dans cette plateforme.
