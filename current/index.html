@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>MS-I3 : Programmation hybride et multi-coeurs</title>
+    <link href="./index_files/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1>Cours MS-I3 : Programmation hybride et multi-coeurs
+      <small>&nbsp;[2025/2026]</small></h1>
+    <h2>Organisation</h2>
+    <ol>
+      <li><b>Horaire :</b> Cours et TD/TP le vendredi matin
+        &nbsp;<a href="current/Seances_MS_I3.html">[Planning
+          détaillé]</a></li>
+      <li><b>Enseignant :</b>
+        <ol>
+          <li><a href="mailto:marc.tajchman@cea.fr">Marc Tajchman</a>, CEA,
+            DEN/DM2S/STMF/LMES</li>
+        </ol>
+      </li>
+    </ol>
+    <h2>Prérequis</h2>
+    Il est conseillé aux étudiants qui souhaitent suivre ce cours,
+    d'avoir déjà utilisé des machines de calcul sous linux, les outils
+    standards (shell, éditeurs, etc) et les outils de progammation
+    (tels que compilateurs, cmake, make, débogeurs, etc) disponibles
+    dans cette plateforme.
+    <p>Les exemples et exercices ont été testés sur le cluster
+      Cholesky, mais devraient fonctionner sur d'autres environnements
+      (linux, macOs ou windows sur machine personnelle) à condition
+      d'installer des outils adéquats. Ne pas hésiter à poser des
+      questions en cas de soucis.</p>
+    <p>La connaissance d'un langage de programmation utilisé dans le
+      domaine scientifique, de préférence C++ (les notions de C++
+      nécessaires sont de niveau basique), est indispensable pour
+      effectuer les travaux pratiques demandés.</p>
+    <p>Dans la seconde partie du cours, on utilisera des
+      fonctionnalités (un peu) plus avancées de C++ (fonctions lambda,
+      templates), une séance spécifique de ce cours leur sera consacrée.
+      A nouveau, en cas de difficultés, ne pas hésiter à poser des
+      questions.</p>
+    <p>Enfin, on supposera que les étudiants ont des notions en
+      programmation parallèle avec OpenMP, MPI et en méthodes numériques,
+			obtenues par exemple en suivant
+      <a href="https://ms01.pages.math.cnrs.fr/" target="_blank">Cours MS01 - 
+        Calcul Scientifique Parallèle</a> (MPI et méthodes numériques) et
+      <a href="https://sim3.pages.math.cnrs.fr/" target="_blank">Cours SIM3 - 
+        Initiation au calcul haute performance</a> (OpenMP)</p>
+    <h2>Programme du cours</h2>
+    Le programme ci-dessous est indicatif, il est susceptible de
+    légères adaptations. On ajoutera au fur et à mesure de l'avancement
+    du cours, des références sur les supports de cours et les fichiers
+    sources des exercices et TP.
+    <p><b>Quelques <a href="current/Intro_Exos_TPs.pdf">conseils et
+          remarques</a> concernant les TPs et exemples</b></p>
+    <ul>
+      <li><b>Rappels sur les architectures des machines et différents
+          types de programmation parallèle (1/2 séance)</b>
+        <p><b><a href="current/Cours01/Cours_I03_Intro.pdf">Support de cours :
+              Introduction et Rappels d'architecture des ordinateurs</a></b></p>
+      </li>
+      <li><b>Optimisation de la programmation séquentielle (1/2
+          séance)</b>
+        <ul>
+          <li><b><a href="current/Seance01/Cours_I03_OptimSeq.pdf">Support de cours :
+                Optimisation de la programmation séquentielle</a></b></li>
+          <li>Mémoire cache des machines.</li>
+          <li>Notions de localités spatiale et temporelle.</li>
+          <li>Utiliser les possibilités du processeur.</li>
+          <li>Influence sur l'efficacité des algorithmes.</li>
+          <li>Exemples. (<b><a href="Seance01/Exemples01.tar.gz">format tar +
+                gzip</a>, <a href="Seance01/Exemples01.zip">format
+                zip</a></b>)</li>
+        </ul>
+      </li>
+      <li><b>Programmation multi-threads (2 séances)</b>
+        <ul>
+          <li>Séance 1: compléments de programmation OpenMP (<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance02/Cours_I03_Multithreads.pdf">support de cours :
+                Programmation multi-threads (partie 1)</a></b>)
+            <ul>
+              <li>Différents outils disponibles.</li>
+              <li>Variables partagées ou non entre threads.</li>
+              <li>Exemples (<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance02/Exemples02.tar.gz">format tar +
+                    gzip</a>, <a href="https://perso.ensta-paris.fr/~tajchman/current/Seance02/Exemples02.zip">format
+                    zip</a></b>)</li>
+            </ul>
+          </li>
+          <li>Séance 2: techniques de programmation multi-threads
+            <ul>
+              <li>Différentes techniques de programmation avec OpenMP : grain
+                fin, grain grossier, programmation par tâches<br></li>
+              <li>Autres outils pour la programmation multi-threads :
+                std::threads, TBB, ...</li>
+              <li><b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance03/Cours_I03_Multithreads2.pdf">support de
+                    cours : Programmation multi-threads (partie 2)</a></b>.</li>
+              <li>Exemples (<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance03/Exemples03.tar.gz">format tar +
+                    gzip</a>, <a href="https://perso.ensta-paris.fr/~tajchman/current/Seance03/Exemples03.zip">format
+                    zip</a></b>)</li>
+            </ul>
+          </li>
+					<li><p>TP 1 : <b><a href="https://perso.ensta-paris.fr/~tajchman/current/TP1/Enonce_TP1.pdf">Enoncé</a></b> et code
+						source à modifier/compléter: <b><a href="https://perso.ensta-paris.fr/~tajchman/current/TP1/TP1_incomplet.tar.gz">format tar + gzip</a>, <a href="https://perso.ensta-paris.fr/~tajchman/current/TP1/TP1_incomplet.zip">format zip</a></b></p>
+          </li>
+        </ul>
+      </li>
+      <li><b>Programmation hybride multi-noeuds - multi-coeurs (1 séance)</b>
+        <ul>
+          <li><b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance04/Cours_I03_Hybride.pdf">Support de cours :
+                Programmation hybride</a></b>
+            <ul>
+              <li>Intérêt de ce type d'approche.</li>
+              <li>Comparaison de différentes techniques MPI-OpenMP.</li>
+              <li>Exemples (<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance04/Exemples04.tar.gz">format tar +
+                    gzip</a>, <a href="https://perso.ensta-paris.fr/~tajchman/current/Seance04/Exemples04.zip">format
+                    zip</a></b>)</li>
+            </ul>
+          </li>
+          <li><b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance04/PGAS.pdf">Langages PGAS</a></b> (pour
+            information, ces langages ne sont presque plus utilisés)</li>
+					<li><p>TP 2 : <b><a href="https://perso.ensta-paris.fr/~tajchman/current/TP2/Enonce_TP2.pdf">Enoncé</a></b> et code
+						source à modifier/compléter: <b><a href="https://perso.ensta-paris.fr/~tajchman/current/TP2/TP2_incomplet.tar.gz">format tar + gzip</a>, <a href="https://perso.ensta-paris.fr/~tajchman/current/TP2/TP2_incomplet.zip">format zip</a></b></p>
+          </li>
+	
+        </ul>
+      </li>
+      <li><b>Programmation des GPU (Graphics Processing Unit)</b> (6 séances).
+        <ul>
+          <li>Les outils de base: Cuda, OpenCL (2 séances)
+            <ul>
+              <li>
+                <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance05/Cours_I03_GPU.pdf">Introduction aux GPU</a></b>
+              </li>
+              <li>
+                <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance05/Introduction_to_CUDA_C.pdf">Bases du
+										langage Cuda</a></b> (document Nvidia)
+              </li>
+              <li>
+								Exemples commentés en Cuda et OpenCL (
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance05/Exemples05.tar.gz">format tar +
+										gzip</a></b>, 
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance05/Exemples05.zip">format zip</a></b>)
+              </li>
+							<li>
+                Commentaires sur la performance de codes exécutés sur GPU avec d'autres exemples
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance06/Exemples06.tar.gz">format tar +
+										gzip</a></b>, 
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance06/Exemples06.zip">format zip</a></b>)
+              </li>
+							<li>Environnement de programmation disponible (libraires, outils
+								logiciels), par exemple, les librairies 
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance06/CUBLAS_Library.pdf">Cublas</a></b> et 
+                <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance06/Introduction_to_Thrust.pdf">Thrust</a></b>
+								(documents Nvidia), ajout d'exemples Thrust et Cublas
+								(<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance06/Exemples06.tar.gz">format tar +
+                    gzip</a></b>,
+                <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance06/Exemples06.zip">format zip</a></b>).
+							</li>
+          
+				</ul>
+					</li><li><p>TP 3 : <b><a href="https://perso.ensta-paris.fr/~tajchman/current/TP3/Enonce_TP3.pdf">Enoncé</a></b> et code
+						source à modifier/compléter: <b><a href="https://perso.ensta-paris.fr/~tajchman/current/TP3/TP3_incomplet.tar.gz">format tar + gzip</a>, <a href="https://perso.ensta-paris.fr/~tajchman/current/TP3/TP3_incomplet.zip">format zip</a></b></p>
+          </li>
+          <li>Quelques outils plus haut niveau (3 séances)
+            <ul>
+              <li>Notions de foncteur en C++ (objet-fonction), de fonction
+								lambda, exemples progressifs
+								(<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance07/Exemples07.tar.gz">format tar + gzip</a></b>,
+                <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance07/Exemples07.zip">format zip</a></b>)
+							</li>
+              <li>Un outil visant la portabilité du code et la portabilité des
+								performances sur plusieurs modèles de programmation: Kokkos, 
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance08/KokkosTutorial_ORNL20.pdf">présentation générale de
+										Kokkos</a></b>, exemples 
+								(<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance08/Exemples08.tar.gz">format tar + gzip</a></b>,
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance08/Exemples08.zip">format zip</a></b>)
+							</li>
+              <li>Un outil basé sur OpenCL et visant à simplifier la
+								programmation: Sycl,
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance09/SYCL___ALCFCPW_2022.pdf">présentation générale de
+										Sycl</a></b>, exemples simples
+								(<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance09/Exemples09.tar.gz">format tar + gzip</a></b>,
+								<b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance09/Exemples09.zip">format zip</a></b>)
+							</li>
+            </ul>
+          </li>
+          <li>Programmation Multi-GPU (1 séance)
+            <ul>Dans cette séance, on verra plusieurs moyens pour combiner
+							plusieurs types de parallélismes
+							<li>Lancement simultanés de plusieurs calculs sur le même GPU:
+								exemples commentés</li>
+              <li>Plusieurs GPU associés au même CPU (combinaison Cuda +
+								OpenMP): exemple commenté</li>
+              <li>Plusieurs GPU associés chacun à un CPU. (combinaison Cuda +
+								MPI) : <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance10/Cours_Hybride_MPI_Cuda.pdf">présentation</a></b></li>
+							Quelques exemples: <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance10/Exemples10.tar.gz">format tar + gzip</a></b>,
+                <b><a href="https://perso.ensta-paris.fr/~tajchman/current/Seance10/Exemples10.zip">format zip</a></b>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  
+
+</body></html>
