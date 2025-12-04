@@ -13,7 +13,8 @@ versions = [
     "omp_adaptatif_run1",
     "omp_adaptatif_run2",
     "omp_adaptatif_run3",
-    "omp_tasks"
+    "omp_tasks",
+    "tbb"
 ]
 
 parser = argparse.ArgumentParser()
@@ -40,7 +41,7 @@ for v in versions:
     if "dynamic" in v:
         vv = v[:-8]
     cmd = [os.path.join("install", vv)]
-    if not v == 'sinus_seq':
+    if not v == 'sinus_seq' and not v == 'sinus_tbb':
         cmd += ["-threads", str(args.threads)]
     if "dynamic" in v:
         cmd += ['-chunk', str(args.chunk)]

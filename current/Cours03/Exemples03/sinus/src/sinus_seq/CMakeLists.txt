@@ -1,8 +1,5 @@
 
 set(code "sinus_seq")
-cmake_minimum_required(VERSION 3.10)
-project(${code})
-enable_testing()
 
 set(CMAKE_RULE_MESSAGES OFF)
 set(CMAKE_BUILD_TYPE Release)

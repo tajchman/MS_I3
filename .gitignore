@@ -50,3 +50,5 @@ test
 *.snm
 *.toc
 *.vrb
+*.dat
+*.gnp
