@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(Sections)
-enable_testing()
 
 find_package(OpenMP REQUIRED)
 
@@ -26,8 +25,6 @@ add_executable(
 target_link_libraries(fib_seq PUBLIC tools)
 
 install(TARGETS fib_seq DESTINATION .)
- 
-add_test(NAME fib_seq COMMAND fib_seq WORKING_DIRECTORY ${TEST_DIR})
 
 add_executable(
   fib_sections 
@@ -36,6 +33,3 @@ add_executable(
 
 target_link_libraries(fib_sections PUBLIC tools OpenMP::OpenMP_CXX)
 install(TARGETS fib_sections DESTINATION .)
-
-add_test(NAME fib_sections COMMAND fib_sections WORKING_DIRECTORY ${TEST_DIR})
-

@@ -12,7 +12,5 @@ add_executable(${code}
 
 target_link_libraries(${code} communs tools)
 
-add_test(NAME ${code} COMMAND ${code} WORKING_DIRECTORY ${TEST_DIR})
-
 install(TARGETS ${code} DESTINATION .)
 

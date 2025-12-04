@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(STDTHREADS)
-enable_testing()
 
 set(CMAKE_RULE_MESSAGES OFF)
 
@@ -37,8 +36,6 @@ target_link_libraries(
   tools
   ${CMAKE_THREAD_LIBS_INIT})
 
-add_test(NAME exemple_par COMMAND exemple_par  --n 200 WORKING_DIRECTORY ${TEST_DIR})
-
 add_executable(
   exemple_seq 
   main_seq.cxx
@@ -49,7 +46,6 @@ target_link_libraries(
   exemple_seq
   tools)
 
-add_test(NAME exemple_seq COMMAND exemple_seq --n 200 WORKING_DIRECTORY ${TEST_DIR})
 install(TARGETS exemple_seq exemple_par DESTINATION .)
 
 

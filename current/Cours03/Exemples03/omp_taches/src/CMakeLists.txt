@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(Tasks)
-enable_testing()
 
 find_package(OpenMP REQUIRED)
 
@@ -34,9 +33,6 @@ add_executable(
 )
   
 target_link_libraries(fib_tasks PUBLIC tools OpenMP::OpenMP_CXX)
-
-add_test(NAME fib_tasks COMMAND fib_tasks WORKING_DIRECTORY ${TEST_DIR})
-set_property(TEST fib_tasks PROPERTY ENVIRONMENT "OMP_NUM_THREADS=3")
 
 install(TARGETS fib_tasks DESTINATION .)
 

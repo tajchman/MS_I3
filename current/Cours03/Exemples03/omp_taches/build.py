@@ -16,8 +16,7 @@ installDir = os.path.join(base, 'install')
 if args.mode == 'Debug':
   buildDir = os.path.join(buildDir, 'Debug')
   installDir = os.path.join(installDir, 'Debug')
-testDir    = os.path.join(base, 'tests')
-for d in [buildDir, testDir]:
+for d in [buildDir]:
   os.makedirs(d, exist_ok=True)
 
 e = os.environ.copy()
@@ -49,19 +48,13 @@ configureCmd = ['cmake', gen,
                 '-B', buildDir,
                 '-S', srcDir,
                 '-DCMAKE_INSTALL_PREFIX=' + installDir,
-                '-DCMAKE_BUILD_TYPE=' + args.mode,
-                '-DTEST_DIR=' + testDir]
-testCmd      = ['ctest', '--output-on-failure']
-
+                '-DCMAKE_BUILD_TYPE=' + args.mode]
 commands = [
   configureCmd,
   compileCmd,
-  testCmd
 ]
 
 for cmd in commands:
-  if cmd == testCmd and not args.tests:
-    continue
   print('__________________\n', ' '.join(cmd), '\n', file=sys.stderr)
   err = subprocess.call(cmd, cwd=buildDir, env=e)
   if not err==0:

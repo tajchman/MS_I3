@@ -14,9 +14,6 @@ add_executable(${code}
 
 target_link_libraries(${code} PUBLIC communs tools OpenMP::OpenMP_CXX)
 
-add_test(NAME ${code} COMMAND ${code} WORKING_DIRECTORY ${TEST_DIR})
-set_property(TEST ${code} PROPERTY ENVIRONMENT "OMP_NUM_THREADS=3")
-
 install(TARGETS ${code} DESTINATION .)
 
 

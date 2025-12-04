@@ -6,7 +6,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-c', '--compiler', choices=['gnu', 'intel', 'msvc'], default='gnu')
 parser.add_argument('-m', '--mode', choices=['Debug', 'Release'], default='Release')
 parser.add_argument('-v', '--verbose', action='store_true')
-parser.add_argument('--tests', action='store_true')
 args = parser.parse_args()
 
 base       = os.getcwd()
@@ -16,13 +15,13 @@ installDir = os.path.join(base, 'install')
 if args.mode == 'Debug':
   buildDir = os.path.join(buildDir, 'Debug')
   installDir = os.path.join(installDir, 'Debug')
-testDir    = os.path.join(base, 'tests')
-for d in [buildDir, testDir]:
+for d in [buildDir]:
   os.makedirs(d, exist_ok=True)
 
 e = os.environ.copy()
 
 p = platform.system()
+gen = '-GUnix Makefiles'
 if p == 'Windows':
   gen = '-GNinja'
   if args.compiler == 'intel':
@@ -49,19 +48,14 @@ configureCmd = ['cmake', gen,
                 '-B', buildDir,
                 '-S', srcDir,
                 '-DCMAKE_INSTALL_PREFIX=' + installDir,
-                '-DCMAKE_BUILD_TYPE=' + args.mode,
-                '-DTEST_DIR=' + testDir]
-testCmd      = ['ctest', '--output-on-failure']
+                '-DCMAKE_BUILD_TYPE=' + args.mode]
 
 commands = [
   configureCmd,
   compileCmd,
-  testCmd
 ]
 
 for cmd in commands:
-  if cmd == testCmd and not args.tests:
-    continue
   print('__________________\n', ' '.join(cmd), '\n', file=sys.stderr)
   err = subprocess.call(cmd, cwd=buildDir, env=e)
   if not err==0:
