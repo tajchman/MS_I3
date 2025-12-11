@@ -1,0 +1,34 @@
+#include <iostream>
+#include "parameters.hxx"
+#include "system@SYSTEM@.hxx"
+
+#ifdef USE_GRAPHICS
+#include "display.hxx"
+#endif
+
+int main(int argc, char **argv)
+{
+  Parameters p(argc, argv);
+
+
+  std::cout << "Start of computation (@VERSION@ version)\n\n";
+
+  {
+    System@SYSTEM@ nbody(p);
+    nbody.init();
+
+    nbody.loop();
+
+    if (p.output)
+      nbody.save();
+  }
+
+  stats(std::cout, p, "@VERSION@");
+
+  releaseTimers();
+
+  std::cout << "End of computation\n\n";
+  
+  return 0;
+}
+
