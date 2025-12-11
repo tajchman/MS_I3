@@ -15,7 +15,6 @@ void SystemCPU_OpenMP::applyForces(REAL dT)
   REAL softeningSquared = _p.softening * _p.softening;
   REAL *p = pos(), *v = vel(), *m = mass(), *s = speed();
 
-  #pragma omp parallel for
   for (int i = 0; i < _p.nBodies; ++i)
   {
     REAL fx = 0.0, fy = 0.0, fz = 0.0;
@@ -45,7 +44,6 @@ void SystemCPU_OpenMP::applyForces(REAL dT)
 void SystemCPU_OpenMP::updatePositions(REAL dT)
 {
   REAL *p = pos(), *v = vel();
-  #pragma omp parallel for
   for (int i = 0; i < 3*_n; ++i)
   {
     p[i] += v[i] * dT;

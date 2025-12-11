@@ -1,13 +1,22 @@
-#include "systemCPU_THREADS.hxx"
+#include "systemCPU_OpenMP.hxx"
 #include <cmath>
+#include <iostream>
+#include <iomanip>
+#include <omp.h>
 
-void SystemCPU_THREADS::applyForces(REAL dT)
+SystemCPU_OpenMP::SystemCPU_OpenMP(Parameters & P) : SystemCPU(P, "OpenMP") 
+{ 
+  omp_set_num_threads(P.nThreads);
+}
+
+void SystemCPU_OpenMP::applyForces(REAL dT)
 {
   REAL damping = _p.damping;
   REAL softeningSquared = _p.softening * _p.softening;
   REAL *p = pos(), *v = vel(), *m = mass(), *s = speed();
 
-  for (int i = 0; i < _n; ++i)
+  #pragma omp parallel for
+  for (int i = 0; i < _p.nBodies; ++i)
   {
     REAL fx = 0.0, fy = 0.0, fz = 0.0;
     REAL x0 = p[3*i], y0 = p[3*i+1], z0 = p[3*i+2];
@@ -33,9 +42,10 @@ void SystemCPU_THREADS::applyForces(REAL dT)
  }
 }
 
-void SystemCPU_THREADS::updatePositions(REAL dT)
+void SystemCPU_OpenMP::updatePositions(REAL dT)
 {
   REAL *p = pos(), *v = vel();
+  #pragma omp parallel for
   for (int i = 0; i < 3*_n; ++i)
   {
     p[i] += v[i] * dT;

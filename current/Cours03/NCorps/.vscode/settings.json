@@ -88,13 +88,7 @@
   "cmake.sourceDirectory": "${workspaceFolder}/src",
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/src/CPU",
-    "${workspaceFolder}/src/GPU",
-    "${workspaceFolder}/src/communs",
-    "${workspaceFolder}/build/release/double/CPU/sequential/",
-    "${workspaceFolder}/build/release/double/CPU/sequential/",
-    "${workspaceFolder}/build/debug/float/CPU/sequential/",
-    "${workspaceFolder}/build/debug/float/CPU/sequential/",
-    "/usr/local/cuda/targets/x86_64-linux/include"
+    "${workspaceFolder}/src/communs"
   ]
 }
 

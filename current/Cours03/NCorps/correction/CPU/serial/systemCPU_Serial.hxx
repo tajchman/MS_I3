@@ -1,17 +1,15 @@
 #pragma once
 
 #include "systemCPU.hxx"
-#include <tbb/task_arena.h>
 
-class SystemCPU_TBB : public SystemCPU
+class SystemCPU_Serial : public SystemCPU
 {
   public:
 
-    SystemCPU_TBB(Parameters & P);
+    SystemCPU_Serial(Parameters & P) : SystemCPU(P, "Serial") {}
 
   protected:
     void applyForces(REAL dT);
     void updatePositions(REAL dT);
-    tbb::task_arena arena;
 
 };

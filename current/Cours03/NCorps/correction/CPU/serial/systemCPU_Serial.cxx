@@ -1,7 +1,9 @@
-#include "systemCPU_THREADS.hxx"
+#include "systemCPU_Serial.hxx"
 #include <cmath>
+#include <iostream>
+#include <iomanip>
 
-void SystemCPU_THREADS::applyForces(REAL dT)
+void SystemCPU_Serial::applyForces(REAL dT)
 {
   REAL damping = _p.damping;
   REAL softeningSquared = _p.softening * _p.softening;
@@ -33,7 +35,7 @@ void SystemCPU_THREADS::applyForces(REAL dT)
  }
 }
 
-void SystemCPU_THREADS::updatePositions(REAL dT)
+void SystemCPU_Serial::updatePositions(REAL dT)
 {
   REAL *p = pos(), *v = vel();
   for (int i = 0; i < 3*_n; ++i)
