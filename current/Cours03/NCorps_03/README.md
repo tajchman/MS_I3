@@ -8,7 +8,7 @@ Le code source fourni dans ce répertoire simule un système de N particules ave
 
 Le répertoire ``src/CPU/serial`` contient le code non parallélisé de référence.
 
-Vous devrez modifier/compléter les fichiers dans les répertoires ``src/CPU/openmp`` et ``src/CPU/tbb`` pour mettre en place une parallélisation par OpenMP ou TBB (sans modification, les 3 versions donnent les mêmes résultats et performances).
+Vous devrez modifier/compléter les fichiers dans les répertoires ``src/CPU/openmp``, ``src/CPU/tbb`` et ``src/CPU/threads`` pour mettre en place une parallélisation par OpenMP, TBB et std::threads (sans modification, les 4 versions donnent les mêmes résultats et performances).
 
 ____
 ## Pour compiler:
@@ -120,6 +120,15 @@ Modifier le fichier ````src/CPU/tbb/systemCPU_TBB.cxx```` en utilisant les fonct
 
 Faire les mêmes tests que dans la version OpenMP
 
+## Parallélisation std::thread
+
+Modifier le fichier ````src/CPU/threads/systemCPU_THREADS.cxx```` en utilisant le type standard C++ std::thread.
+
+
+Faire les mêmes tests que dans la version OpenMP
+
+<div style="page-break-after: always;"></div>
+
 ## Correction
 
 Une solution possible est disponible dans le répertoire ``correction``.
@@ -139,4 +148,4 @@ et pour exécuter, par exemple, les versions séquentielles et OpenMP corrigée:
 >    ./install_correction/gcc/release/double/ncorps_OpenMP -threads 6
 > ````
 
-**Essayez de faire l'exercice avant de regarder la solution !!**
+## Essayez de faire l'exercice avant de regarder la solution !!
