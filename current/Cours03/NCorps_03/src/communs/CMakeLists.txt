@@ -5,6 +5,10 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}")
 
 include(communs.cmake)
 
+if (TIMERS)
+  add_definitions(-DTIMERS=1)
+endif()
+
 add_library(communs STATIC
   parameters.cxx
   system.cxx

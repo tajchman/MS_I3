@@ -311,6 +311,8 @@ void stats(std::ostream & f, Parameters &p, const char *version)
 
   const int flopsPerInteraction = 20;
 
+  #ifdef TIMERS
+
   double totalTime = printTimers(f);
   double flop = 1 + 19 * double(n)*double(n) + 15 * double(n);
   double gflops = 1e-9 * flop * p.nIterations / totalTime;
@@ -328,4 +330,6 @@ void stats(std::ostream & f, Parameters &p, const char *version)
     << "  \"iterations\": " << p.nIterations << ",\n"
     << "  \"compute time\": " << totalTime  << "\n"
     << "}\n";
+
+  #endif
 }

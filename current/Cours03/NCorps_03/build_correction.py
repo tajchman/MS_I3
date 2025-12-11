@@ -35,7 +35,7 @@ def build_communs(a):
   if a.glew_dir:
     configureCmd.append('-DGLEW_DIR=' + a.glew_dir)
 
-  if a.mode == "prof":
+  if a.mode == "profile":
     configureCmd += [
       '-DCMAKE_CXX_FLAGS=-pg',
       '-DCMAKE_EXE_LINKER_FLAGS=-pg',
@@ -70,7 +70,7 @@ def build_version(a, v):
                   '-Dcommuns_DIR=' + os.path.join(a.installDir, 'communs')
                   ]
   
-  if a.mode == "prof":
+  if a.mode == "profile":
     configureCmd += [
       '-DCMAKE_CXX_FLAGS=-pg',
       '-DCMAKE_EXE_LINKER_FLAGS=-pg',
@@ -95,7 +95,7 @@ def build_version(a, v):
 
   
 parser = argparse.ArgumentParser()
-parser.add_argument('-m', '--mode', nargs="*", choices=['debug', 'release', 'prof'], default=['release'])
+parser.add_argument('-m', '--mode', nargs="*", choices=['debug', 'release', 'profile'], default=['release'])
 parser.add_argument('-v', '--verbose', action='store_true')
 parser.add_argument('-t', '--type', nargs="*", choices=['float', 'double'], default=['double'])
 parser.add_argument('-j', '--parallel', type=int, default=1)
