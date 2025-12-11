@@ -6,6 +6,10 @@ title: Exercice de parallélisation multithreads(Cours 3)
 
 Le code source fourni dans ce répertoire simule un système de N particules avec une masse, qui exercent des forces de gravitation les unes sur les autres.
 
+Le répertoire ``src/CPU/serial`` contient le code non parallélisé de référence.
+
+Vous devrez modifier/compléter les fichiers dans les répertoires ``src/CPU/openmp`` et ``src/CPU/tbb`` pour mettre en place une parallélisation par OpenMP ou TBB (sans modification, les 3 versions donnent les mêmes résultats et performances).
+
 ____
 ## Pour compiler:
 
@@ -116,3 +120,23 @@ Modifier le fichier ````src/CPU/tbb/systemCPU_TBB.cxx```` en utilisant les fonct
 
 Faire les mêmes tests que dans la version OpenMP
 
+## Correction
+
+Une solution possible est disponible dans le répertoire ``correction``.
+
+Pour compiler les codes proposés dans le répertoire ``correction``, il faut taper:
+
+> ````
+>    ./build_correction.py
+> ````
+
+et pour exécuter, par exemple, les versions séquentielles et OpenMP corrigée:
+> ````
+>    ./install_correction/gcc/release/double/ncorps_Serial
+>    ./install_correction/gcc/release/double/ncorps_OpenMP -threads 6
+>    ./install_correction/gcc/release/double/ncorps_OpenMP -threads 2
+>    ./install_correction/gcc/release/double/ncorps_OpenMP -threads 3
+>    ./install_correction/gcc/release/double/ncorps_OpenMP -threads 6
+> ````
+
+**Essayez de faire l'exercice avant de regarder la solution !!**
