@@ -47,7 +47,7 @@ def build_communs(a):
       '-DTIMERS=ON'
     ]
     
-  compileCmd = ['cmake', '--build', buildDir, '--parallel', a.parallel]
+  compileCmd = ['cmake', '--build', buildDir]
   installCmd = ['cmake', '--install', buildDir]
   
   if a.type == 'float':

@@ -9,11 +9,11 @@ set(CMAKE_CXX_EXTENSIONS Off)
 
 option(FLOAT "use simple/double numeric values for the computations" OFF)
 if (FLOAT)
-  add_compile_definitions(FLOAT=1)
+	add_compile_definitions(-DFLOAT=1)
 endif()
 
 if (TIMERS)
-  add_compile_definitions(TIMERS=1)
+	add_compile_definitions(-DTIMERS=1)
 endif()
 
 list(APPEND CMAKE_MODULE_PATH "${communs_DIR}")
